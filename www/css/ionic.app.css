@@ -7603,3 +7603,6 @@ a.button {
     opacity: 0.5; }
   .item.item-completed span {
     text-decoration: line-through; }
+
+.button.button-no-margin {
+  margin-top: 1px; }
