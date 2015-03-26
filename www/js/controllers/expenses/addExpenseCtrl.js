@@ -8,7 +8,7 @@ angular.module('app')
   };
 
   // Clear form when entering view
-  $scope.$on('$ionicView.beforeEnter', function() {
+  $scope.$on('$ionicView.afterLeave', function() {
     $scope.$broadcast('formAddExpense:clear');
   });
 
