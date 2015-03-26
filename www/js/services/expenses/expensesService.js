@@ -6,7 +6,7 @@ angular.module('app')
       return [
         {
           id: 1,
-          category: 'Food',
+          category: 'Groceries',
           type: 1, // 1: Personal, 2: Collective
           description: null,
           amount: 10,
@@ -20,7 +20,7 @@ angular.module('app')
         },
         {
           id: 3,
-          category: 'Food',
+          category: 'Groceries',
           type: 2,
           description: null,
           amount: 105,
