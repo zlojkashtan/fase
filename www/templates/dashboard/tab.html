@@ -1,22 +1,23 @@
 <ion-view view-title="Dashboard">
   <ion-content>
+    <ion-refresher on-refresh="getData()"></ion-refresher>
+
     <!-- collective stats -->
-    <ion-list>
-      <ion-item>
-        <div class="padding-bottom">
-          <progress-bar img="img/evan.jpg" value="50" max="100"></progress-bar>
-        </div>
-        <div class="padding-bottom">
-          <progress-bar img="img/fahim.jpg" value="33" max="100"></progress-bar>
-        </div>
-        <div class="padding-bottom">
-          <progress-bar img="img/sakib.jpg" value="75" max="100"></progress-bar>
-        </div>
-        <div class="">
-          <progress-bar img="img/anton.jpg" value="0" max="100"></progress-bar>
-        </div>
-      </ion-item>
-    </ion-list>
+    <div class="padding">
+      <h3 class="text-featurette text-center">Performance</h3>
+      <div class="padding-bottom">
+        <progress-bar img="img/evan.jpg" value="50" max="100"></progress-bar>
+      </div>
+      <div class="padding-bottom">
+        <progress-bar img="img/fahim.jpg" value="33" max="100"></progress-bar>
+      </div>
+      <div class="padding-bottom">
+        <progress-bar img="img/sakib.jpg" value="75" max="100"></progress-bar>
+      </div>
+      <div class="">
+        <progress-bar img="img/anton.jpg" value="0" max="100"></progress-bar>
+      </div>
+    </div>
 
     <!-- personal stats -->
     <ion-list>
