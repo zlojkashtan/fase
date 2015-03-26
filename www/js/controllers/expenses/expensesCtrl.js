@@ -28,12 +28,14 @@ angular.module('app')
   $scope.swipeLeft = function() {
     if (filter + 1 < filters.length) {
       $scope.type = filters[++filter];
+      $scope.filterExpenses($scope.type);
     }
   };
 
   $scope.swipeRight = function() {
     if (filter > 0) {
       $scope.type = filters[--filter];
+      $scope.filterExpenses($scope.type);
     }
   };
 
