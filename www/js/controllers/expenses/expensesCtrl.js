@@ -1,10 +1,12 @@
 angular.module('app')
 
-.controller('ExpensesCtrl', function($scope, $filter, ExpenseType, ExpensesService) {
+.controller('ExpensesCtrl', function($scope, $filter, $ionicActionSheet, ExpenseType, ExpensesService) {
 
   // Defaults
   $scope.expenses = [];
   $scope.filteredExpenses = [];
+  var filters = [1, 2, 0];
+  var filter = 0;
 
   // Determine height of list item
   $scope.getItemHeight = function(expense) {
@@ -23,8 +25,29 @@ angular.module('app')
     }
   };
 
-  $scope.removeExpense = function(expense) {
-    console.log(expense);
+  $scope.swipeLeft = function() {
+    if (filter + 1 < filters.length) {
+      $scope.type = filters[++filter];
+    }
+  };
+
+  $scope.swipeRight = function() {
+    if (filter > 0) {
+      $scope.type = filters[--filter];
+    }
+  };
+
+  $scope.displayOptions = function(expense) {
+    if (expense.type == ExpenseType.personal) {
+      $ionicActionSheet.show({
+        buttons: [],
+        cancelText: 'Cancel',
+        destructiveText: 'Delete',
+        destructiveButtonClicked: function() {
+          console.log("Delete!");
+        },
+      });
+    }
   };
 
   // Load expenses when entering view

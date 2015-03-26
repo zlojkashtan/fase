@@ -6,22 +6,20 @@
         on-tap="filterExpenses(ExpenseType.personal)">Personal</a>
       <a class="tab-item" ng-class="{ active: type == ExpenseType.collective }"
         on-tap="filterExpenses(ExpenseType.collective)">Collective</a>
-      <a class="tab-item" ng-class="{ active: type == 0 }"
+      <a class="tab-item" ng-class="{ active: type == ExpenseType.all }"
         on-tap="filterExpenses(ExpenseType.all)">All</a>
     </div>
   </div>
-  <ion-content class="has-tabs-top">
+  <ion-content class="has-tabs-top" on-swipe-right="swipeRight()" on-swipe-left="swipeLeft()">
 
     <ion-list>
-      <ion-item collection-repeat="e in filteredExpenses" collection-item-height="getItemHeight(e)">
+      <ion-item collection-repeat="e in filteredExpenses" collection-item-height="getItemHeight(e)"
+        on-hold="displayOptions(e)">
         {{ e.category }}
         <span class="item-note">
           {{ e.amount | currency }}
         </span>
         <p>{{ e.description }}</p>
-        <ion-option-button class="button-assertive" ng-if="type == ExpenseType.personal" on-tap="removeExpense(e)">
-          Remove
-        </ion-option-button>
       </ion-item>
     </ion-list>
 
