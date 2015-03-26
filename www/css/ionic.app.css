@@ -7596,3 +7596,10 @@ a.button {
     font-size: 36px;
     color: #fff;
     background-color: #387ef5; }
+
+.item.item-completed {
+  background-color: #f8f8f8; }
+  .item.item-completed i, .item.item-completed span {
+    opacity: 0.5; }
+  .item.item-completed span {
+    text-decoration: line-through; }

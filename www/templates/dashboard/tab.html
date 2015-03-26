@@ -1,28 +1,44 @@
 <ion-view view-title="Dashboard">
-  <ion-content class="padding">
-    <div class="list card">
-      <div class="item item-divider">Recent Updates</div>
-      <div class="item item-body">
-        <div>
-          There is a fire in <b>sector 3</b>
-        </div>
-      </div>
-    </div>
-    <div class="list card">
-      <div class="item item-divider">Health</div>
-      <div class="item item-body">
-        <div>
-          You ate an apple today!
-        </div>
-      </div>
-    </div>
-    <div class="list card">
-      <div class="item item-divider">Upcoming</div>
-      <div class="item item-body">
-        <div>
-          You have <b>29</b> meetings on your calendar tomorrow.
-        </div>
-      </div>
-    </div>
+  <ion-content>
+
+    <ion-list>
+      <ion-item class="item-divider">Your Expenses (Current Month)</ion-item>
+      <ion-item class="item-icon-left">
+        <i class="icon ion-coffee"></i>
+        <span><b>$250.00</b> / $500.00</span>
+        <span class="item-note">
+          <span class="balanced">+$50.00</span>
+        </span>
+      </ion-item>
+      <ion-item class="item-icon-left">
+        <i class="icon ion-flash"></i>
+        <span><b>$30.00</b> / $25.00</span>
+        <span class="item-note">
+          <span class="assertive">-$5.00</span>
+        </span>
+      </ion-item>
+      <ion-item class="item-icon-left item-completed">
+        <i class="icon ion-wifi"></i>
+        <span><b>$10.00</b> / $10.00</span>
+        <span class="item-note">
+          <span>$0.00</span>
+        </span>
+      </ion-item>
+      <ion-item class="item-icon-left">
+        <i class="icon ion-bag"></i>
+        <span><b>$250.00</b> / $300.00</span>
+        <span class="item-note">
+          <span class="balanced">+$50.00</span>
+        </span>
+      </ion-item>
+      <ion-item class="item-icon-left item-completed">
+        <i class="icon ion-home"></i>
+        <span><b>$650.00</b> / $650.00</span>
+        <span class="item-note">
+          <span>$0.00</span>
+        </span>
+      </ion-item>
+    </ion-list>
+
   </ion-content>
 </ion-view>

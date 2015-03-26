@@ -1,0 +1,14 @@
+.item {
+  &.item-completed {
+    background-color: $stable;
+
+    i,
+    span {
+      opacity: 0.5;
+    }
+
+    span {
+      text-decoration: line-through;
+    }
+  }
+}

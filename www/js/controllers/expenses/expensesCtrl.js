@@ -41,12 +41,12 @@ angular.module('app')
 
   $scope.displayOptions = function(expense) {
     if (expense.type == ExpenseType.personal) {
-      $ionicActionSheet.show({
+      var hideOptions = $ionicActionSheet.show({
         buttons: [],
         cancelText: 'Cancel',
         destructiveText: 'Delete',
         destructiveButtonClicked: function() {
-          console.log("Delete!");
+          hideOptions();
         },
       });
     }
