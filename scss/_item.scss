@@ -11,4 +11,10 @@
       text-decoration: line-through;
     }
   }
+
+  .item-note-large {
+    @extend .item-note;
+    color: $base-color;
+    font-size: $item-font-size;
+  }
 }
