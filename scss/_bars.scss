@@ -1,0 +1,23 @@
+.progress-bar {
+  position: relative;
+  height: $bar-height;
+  border-radius: $bar-height / 2;
+  background-color: $item-divider-bg;
+
+  .progress-bar-completed {
+    position: relative;
+    height: $bar-height;
+    border-top-left-radius: $bar-height / 2;
+    border-bottom-left-radius: $bar-height / 2;
+    background-color: $balanced;
+  }
+
+  img {
+    position: absolute;
+    top: 0;
+    right: -$bar-height / 2;
+    height: $bar-height;
+    border-radius: 50%;
+    border: 4px solid $balanced;
+  }
+}
