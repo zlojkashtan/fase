@@ -14,7 +14,7 @@
 
     <ion-list>
       <ion-item collection-repeat="e in filteredExpenses" collection-item-height="getItemHeight(e)"
-        on-hold="displayOptions(e)">
+        on-hold="displayOptions(e)" href="">
         {{ e.category }}
         <span class="item-note">
           {{ e.amount | currency }}

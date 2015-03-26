@@ -7633,3 +7633,6 @@ a.button {
   font-weight: 300;
   text-transform: uppercase;
   letter-spacing: 3px; }
+
+img.rounded-image {
+  border-radius: 50%; }
