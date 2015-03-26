@@ -1,0 +1,34 @@
+<form name="formAddExpense" ng-submit="submit()" novalidate>
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">Amount</span>
+    <input type="number" name="amount" ng-model="expense.amount" required="required" placeholder="10.00">
+  </label>
+
+  <label class="item item-input item-select">
+    <span class="input-label">Category</span>
+    <select>
+      <option>Food</option>
+      <option>Internet</option>
+      <option>Hydro</option>
+      <option>Other</option>
+    </select>
+  </label>
+
+  <label class="item item-input item-stacked-label" style="padding-right: 16px;">
+    <span class="input-label">Type</span>
+    <input type="hidden" ng-model="expense.type" required="required">
+    <div class="button-bar padding-top padding-bottom">
+      <button type="button" class="button button-outline" on-tap="setType(ExpenseType.personal)"
+        ng-class="{ active: expense.type == ExpenseType.personal }">Personal</button>
+      <button type="button" class="button button-outline" on-tap="setType(ExpenseType.collective)"
+        ng-class="{ active: expense.type == ExpenseType.collective }">Collective</button>
+    </div>
+  </label>
+
+  <label class="item item-input item-stacked-label">
+    <span class="input-label">Description</span>
+    <input type="text" name="description" ng-model="expense.description" placeholder="A donut and coffee">
+  </label>
+
+  <button class="button button-block button-clear button-positive" type="submit">Submit</button>
+</form>

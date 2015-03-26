@@ -3,11 +3,11 @@
   <div class="tabs-striped tabs-top tabs-background-light tabs-color-positive">
     <div class="tabs">
       <a class="tab-item" ng-class="{ active: type == ExpenseType.personal }"
-        on-release="filterExpenses(ExpenseType.personal)">Personal</a>
+        on-tap="filterExpenses(ExpenseType.personal)">Personal</a>
       <a class="tab-item" ng-class="{ active: type == ExpenseType.collective }"
-        on-release="filterExpenses(ExpenseType.collective)">Collective</a>
+        on-tap="filterExpenses(ExpenseType.collective)">Collective</a>
       <a class="tab-item" ng-class="{ active: type == 0 }"
-        on-release="filterExpenses(ExpenseType.all)">All</a>
+        on-tap="filterExpenses(ExpenseType.all)">All</a>
     </div>
   </div>
   <ion-content class="has-tabs-top">
@@ -19,7 +19,7 @@
           {{ e.amount | currency }}
         </span>
         <p>{{ e.description }}</p>
-        <ion-option-button class="button-assertive" ng-if="type == ExpenseType.personal" on-release="removeExpense(e)">
+        <ion-option-button class="button-assertive" ng-if="type == ExpenseType.personal" on-tap="removeExpense(e)">
           Remove
         </ion-option-button>
       </ion-item>

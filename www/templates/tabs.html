@@ -6,22 +6,27 @@ navigation history that also transitions its views in and out.
 <ion-tabs class="tabs-icon-top tabs-light">
 
   <!-- Dashboard Tab -->
-  <ion-tab title="Dashboard" icon-off="ion-stats-bars" icon-on="ion-stats-bars positive" href="#/tab/dashboard">
+  <ion-tab title="Dashboard" icon-off="ion-ios-analytics-outline" icon-on="ion-ios-analytics positive" href="#/tab/dashboard">
     <ion-nav-view name="tab-dashboard"></ion-nav-view>
   </ion-tab>
 
   <!-- Expenses Tab -->
-  <ion-tab title="Expenses" icon-off="ion-pricetags" icon-on="ion-pricetags positive" href="#/tab/expenses">
+  <ion-tab title="Expenses" icon-off="ion-ios-pricetags-outline" icon-on="ion-ios-pricetags positive" href="#/tab/expenses">
     <ion-nav-view name="tab-expenses"></ion-nav-view>
   </ion-tab>
 
+  <!-- Add Expense Tab -->
+  <ion-tab icon-off="ion-ios-plus-outline" icon-on="ion-ios-plus" href="#/tab/add" class="tab-main">
+    <ion-nav-view name="tab-add"></ion-nav-view>
+  </ion-tab>
+
   <!-- Location Tab -->
-  <ion-tab title="Location" icon-off="ion-map" icon-on="ion-map positive" href="#/tab/location">
+  <ion-tab title="Location" icon-off="ion-ios-navigate-outline" icon-on="ion-ios-navigate positive" href="#/tab/location">
     <ion-nav-view name="tab-location"></ion-nav-view>
   </ion-tab>
 
   <!-- Account Tab -->
-  <ion-tab title="Account" icon-off="ion-person" icon-on="ion-person positive" href="#/tab/account">
+  <ion-tab title="Account" icon-off="ion-ios-person-outline" icon-on="ion-ios-person positive" href="#/tab/account">
     <ion-nav-view name="tab-account"></ion-nav-view>
   </ion-tab>
 

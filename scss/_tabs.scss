@@ -1,0 +1,14 @@
+.tab-item {
+  &.tab-main {
+    opacity: 1;
+
+    .icon {
+      height: 100%;
+      margin: 0 3px;
+      padding-top: 5px;
+      font-size: 36px;
+      color: $light;
+      background-color: $positive;
+    }
+  }
+}
