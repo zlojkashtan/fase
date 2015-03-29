@@ -1,6 +1,6 @@
 angular.module('app')
 
-.controller('ExpensesCtrl', function($scope, $filter, $ionicActionSheet, ExpenseType, ExpensesService) {
+.controller('ExpensesCtrl', function($scope, $filter, $ionicActionSheet, ExpenseScope, ExpensesService) {
 
   // Defaults
   $scope.expenses = [];
@@ -16,10 +16,10 @@ angular.module('app')
     return 55;
   };
 
-  $scope.filterExpenses = function(type) {
-    $scope.type = type;
-    if (type) {
-      $scope.filteredExpenses = $filter('filter')($scope.expenses, { type: $scope.type });
+  $scope.filterExpenses = function(scope) {
+    $scope.scope = scope;
+    if (scope) {
+      $scope.filteredExpenses = $filter('filter')($scope.expenses, { scope: $scope.scope });
     } else {
       $scope.filteredExpenses = $scope.expenses;
     }
@@ -27,20 +27,20 @@ angular.module('app')
 
   $scope.swipeLeft = function() {
     if (filter + 1 < filters.length) {
-      $scope.type = filters[++filter];
-      $scope.filterExpenses($scope.type);
+      $scope.scope = filters[++filter];
+      $scope.filterExpenses($scope.scope);
     }
   };
 
   $scope.swipeRight = function() {
     if (filter > 0) {
-      $scope.type = filters[--filter];
-      $scope.filterExpenses($scope.type);
+      $scope.scope = filters[--filter];
+      $scope.filterExpenses($scope.scope);
     }
   };
 
   $scope.displayOptions = function(expense) {
-    if (expense.type == ExpenseType.personal) {
+    if (expense.type == ExpenseScope.personal) {
       var hideOptions = $ionicActionSheet.show({
         buttons: [],
         cancelText: 'Cancel',
@@ -54,8 +54,11 @@ angular.module('app')
 
   // Load expenses when entering view
   $scope.$on('$ionicView.enter', function() {
-    $scope.expenses = ExpensesService.query();
-    $scope.filterExpenses(ExpenseType.personal);
+    ExpensesService.query()
+      .then(function(res) {
+        $scope.expenses = res;
+        $scope.filterExpenses(ExpenseScope.personal);
+      });
   });
 
 });

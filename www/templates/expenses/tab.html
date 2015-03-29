@@ -2,12 +2,12 @@
   <!-- expense types -->
   <div class="tabs-striped tabs-top tabs-background-light tabs-color-positive">
     <div class="tabs">
-      <a class="tab-item" ng-class="{ active: type == ExpenseType.personal }"
-        on-tap="filterExpenses(ExpenseType.personal)">Personal</a>
-      <a class="tab-item" ng-class="{ active: type == ExpenseType.collective }"
-        on-tap="filterExpenses(ExpenseType.collective)">Collective</a>
-      <a class="tab-item" ng-class="{ active: type == ExpenseType.all }"
-        on-tap="filterExpenses(ExpenseType.all)">All</a>
+      <a class="tab-item" ng-class="{ active: scope == ExpenseScope.personal }"
+        on-tap="filterExpenses(ExpenseScope.personal)">Personal</a>
+      <a class="tab-item" ng-class="{ active: scope == ExpenseScope.collective }"
+        on-tap="filterExpenses(ExpenseScope.collective)">Collective</a>
+      <a class="tab-item" ng-class="{ active: scope == ExpenseScope.all }"
+        on-tap="filterExpenses(ExpenseScope.all)">All</a>
     </div>
   </div>
   <ion-content class="has-tabs-top" on-swipe-right="swipeRight()" on-swipe-left="swipeLeft()">

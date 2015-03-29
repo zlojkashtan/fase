@@ -1,6 +1,6 @@
 angular.module('app')
 
-.controller('TabsCtrl', function($rootScope, ExpenseType) {
+.controller('TabsCtrl', function($rootScope, ExpenseScope) {
   // Set global constants
-  $rootScope.ExpenseType = ExpenseType;
+  $rootScope.ExpenseScope = ExpenseScope;
 });

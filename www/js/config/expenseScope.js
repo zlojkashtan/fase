@@ -1,6 +1,6 @@
 angular.module('app')
 
-.constant('ExpenseType', {
+.constant('ExpenseScope', {
   all: 0,
   personal: 1,
   collective: 2,

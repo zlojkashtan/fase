@@ -1,6 +1,6 @@
 angular.module('app')
 
-.directive('formAddExpense', function(ExpenseType) {
+.directive('formAddExpense', function(ExpenseScope) {
   return {
     restrict: 'E',
     scope: {
@@ -9,7 +9,7 @@ angular.module('app')
     controller: function($scope) {
       // Defaults
       $scope.expense = {};
-      $scope.ExpenseType = ExpenseType;
+      $scope.ExpenseScope = ExpenseScope;
 
       // Form validators
       $scope.validateType = function() {
