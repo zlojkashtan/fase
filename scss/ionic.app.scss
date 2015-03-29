@@ -5,6 +5,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 @import "www/lib/ionic/scss/ionic";
 
 // Include app styles
+@import "base";
 @import "tabs";
 @import "item";
 @import "buttons";

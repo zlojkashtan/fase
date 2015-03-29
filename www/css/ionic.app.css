@@ -7587,6 +7587,12 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+.scroll {
+  height: 100%; }
+
+.full-height {
+  height: 100%; }
+
 .tab-item.tab-main {
   opacity: 1; }
   .tab-item.tab-main .icon {

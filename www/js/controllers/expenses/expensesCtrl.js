@@ -1,12 +1,16 @@
 angular.module('app')
 
-.controller('ExpensesCtrl', function($scope, $filter, $ionicActionSheet, ExpenseScope, ExpensesService) {
+.controller('ExpensesCtrl', function($scope, $filter, $ionicActionSheet, $ionicSlideBoxDelegate, ExpenseScope, ExpensesService) {
 
   // Defaults
   $scope.expenses = [];
-  $scope.filteredExpenses = [];
-  var filters = [1, 2, 0];
-  var filter = 0;
+  $scope.personalExpenses = [];
+  $scope.collectiveExpenses = [];
+  $scope.currentTab = 0;
+
+  function filterExpenses(scope) {
+    return $filter('filter')($scope.expenses, { scope: scope });
+  }
 
   // Determine height of list item
   $scope.getItemHeight = function(expense) {
@@ -16,40 +20,23 @@ angular.module('app')
     return 55;
   };
 
-  $scope.filterExpenses = function(scope) {
-    $scope.scope = scope;
-    if (scope) {
-      $scope.filteredExpenses = $filter('filter')($scope.expenses, { scope: $scope.scope });
-    } else {
-      $scope.filteredExpenses = $scope.expenses;
-    }
+  $scope.updateTab = function(index) {
+    $scope.currentTab = index;
   };
 
-  $scope.swipeLeft = function() {
-    if (filter + 1 < filters.length) {
-      $scope.scope = filters[++filter];
-      $scope.filterExpenses($scope.scope);
-    }
-  };
-
-  $scope.swipeRight = function() {
-    if (filter > 0) {
-      $scope.scope = filters[--filter];
-      $scope.filterExpenses($scope.scope);
-    }
+  $scope.switchTab = function(index) {
+    $ionicSlideBoxDelegate.slide(index);
   };
 
   $scope.displayOptions = function(expense) {
-    if (expense.type == ExpenseScope.personal) {
-      var hideOptions = $ionicActionSheet.show({
-        buttons: [],
-        cancelText: 'Cancel',
-        destructiveText: 'Delete',
-        destructiveButtonClicked: function() {
-          hideOptions();
-        },
-      });
-    }
+    var hideOptions = $ionicActionSheet.show({
+      buttons: [],
+      cancelText: 'Cancel',
+      destructiveText: 'Delete',
+      destructiveButtonClicked: function() {
+        hideOptions();
+      },
+    });
   };
 
   // Load expenses when entering view
@@ -57,7 +44,8 @@ angular.module('app')
     ExpensesService.query()
       .then(function(res) {
         $scope.expenses = res;
-        $scope.filterExpenses(ExpenseScope.personal);
+        $scope.personalExpenses = filterExpenses(ExpenseScope.personal);
+        $scope.collectiveExpenses = filterExpenses(ExpenseScope.collective);
       });
   });
 

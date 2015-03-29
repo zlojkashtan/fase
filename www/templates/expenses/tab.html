@@ -2,26 +2,56 @@
   <!-- expense types -->
   <div class="tabs-striped tabs-top tabs-background-light tabs-color-positive">
     <div class="tabs">
-      <a class="tab-item" ng-class="{ active: scope == ExpenseScope.personal }"
-        on-tap="filterExpenses(ExpenseScope.personal)">Personal</a>
-      <a class="tab-item" ng-class="{ active: scope == ExpenseScope.collective }"
-        on-tap="filterExpenses(ExpenseScope.collective)">Collective</a>
-      <a class="tab-item" ng-class="{ active: scope == ExpenseScope.all }"
-        on-tap="filterExpenses(ExpenseScope.all)">All</a>
+      <a class="tab-item" ng-class="{ active: currentTab == 0 }"
+        on-tap="switchTab(0)">Personal</a>
+      <a class="tab-item" ng-class="{ active: currentTab == 1 }"
+        on-tap="switchTab(1)">Collective</a>
+      <a class="tab-item" ng-class="{ active: currentTab == 2 }"
+        on-tap="switchTab(2)">All</a>
     </div>
   </div>
-  <ion-content class="has-tabs-top" on-swipe-right="swipeRight()" on-swipe-left="swipeLeft()">
+  <ion-content class="has-tabs-top">
 
-    <ion-list>
-      <ion-item collection-repeat="e in filteredExpenses" collection-item-height="getItemHeight(e)"
-        on-hold="displayOptions(e)" href="">
-        {{ e.category }}
-        <span class="item-note">
-          {{ e.amount | currency }}
-        </span>
-        <p>{{ e.description }}</p>
-      </ion-item>
-    </ion-list>
+    <ion-slide-box class="full-height" on-slide-changed="updateTab($index)" does-continue="false">
+      <!-- personal -->
+      <ion-slide>
+        <ion-list class="full-height">
+          <ion-item ng-repeat="e in personalExpenses" on-hold="displayOptions(e)" href="">
+            {{ e.category }}
+            <span class="item-note">
+              {{ e.amount | currency }}
+            </span>
+            <p>{{ e.description }}</p>
+          </ion-item>
+        </ion-list>
+      </ion-slide>
+
+      <!-- collective -->
+      <ion-slide>
+        <ion-list class="full-height">
+          <ion-item ng-repeat="e in collectiveExpenses">
+            {{ e.category }}
+            <span class="item-note">
+              {{ e.amount | currency }}
+            </span>
+            <p>{{ e.description }}</p>
+          </ion-item>
+        </ion-list>
+      </ion-slide>
+
+      <!-- all -->
+      <ion-slide>
+        <ion-list class="full-height">
+          <ion-item collection-repeat="e in expenses" collection-item-height="getItemHeight(e)">
+            {{ e.category }}
+            <span class="item-note">
+              {{ e.amount | currency }}
+            </span>
+            <p>{{ e.description }}</p>
+          </ion-item>
+        </ion-list>
+      </ion-slide>
+    </ion-slide-box>
 
   </ion-content>
 </ion-view>
