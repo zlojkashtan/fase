@@ -1,38 +1,14 @@
 angular.module('app')
 
-.factory('ExpensesService', function() {
+.factory('ExpensesResource', function($cachedResource, API) {
+  var dir = '/expenses';
+  return $cachedResource('expenses', API.url + dir, { id: '@id' });
+})
+
+.factory('ExpensesService', function(ExpensesResource) {
   return {
     query: function() {
-      return [
-        {
-          id: 1,
-          category: 'Groceries',
-          type: 1, // 1: Personal, 2: Collective
-          description: null,
-          amount: 10,
-        },
-        {
-          id: 2,
-          category: 'Internet',
-          type: 2,
-          description: 'Unlimited Data Plan',
-          amount: 40,
-        },
-        {
-          id: 3,
-          category: 'Groceries',
-          type: 2,
-          description: null,
-          amount: 105,
-        },
-        {
-          id: 4,
-          category: 'Other',
-          type: 1,
-          description: 'FIFA 16',
-          amount: 70,
-        },
-      ];
+
     },
   };
 });

@@ -2,6 +2,7 @@
   "name": "fase",
   "private": "true",
   "dependencies": {
-    "ionic": "driftyco/ionic-bower#1.0.0-rc.1"
+    "ionic": "driftyco/ionic-bower#1.0.0-rc.1",
+    "angular-cached-resource": "~1.4.2"
   }
 }
