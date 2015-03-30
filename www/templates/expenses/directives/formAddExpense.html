@@ -16,12 +16,12 @@
 
   <label class="item item-input item-stacked-label" style="padding-right: 16px;">
     <span class="input-label">Type</span>
-    <input type="hidden" ng-model="expense.type" required="required">
+    <input type="hidden" ng-model="expense.scope" required="required">
     <div class="button-bar padding-top padding-bottom">
-      <button type="button" class="button button-outline" on-tap="setType(ExpenseScope.personal)"
-        ng-class="{ active: expense.type == ExpenseScope.personal }">Personal</button>
-      <button type="button" class="button button-outline" on-tap="setType(ExpenseScope.collective)"
-        ng-class="{ active: expense.type == ExpenseScope.collective }">Collective</button>
+      <button type="button" class="button button-outline" on-tap="setScope(ExpenseScope.personal)"
+        ng-class="{ active: expense.scope == ExpenseScope.personal }">Personal</button>
+      <button type="button" class="button button-outline" on-tap="setScope(ExpenseScope.collective)"
+        ng-class="{ active: expense.scope == ExpenseScope.collective }">Collective</button>
     </div>
   </label>
 

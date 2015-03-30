@@ -11,17 +11,9 @@ angular.module('app')
       $scope.expense = {};
       $scope.ExpenseScope = ExpenseScope;
 
-      // Form validators
-      $scope.validateType = function() {
-        if ($scope.expense.type) {
-          return true;
-        }
-        return false;
-      };
-
       // Form setters
-      $scope.setType = function(type) {
-        $scope.expense.type = type;
+      $scope.setScope = function(scope) {
+        $scope.expense.scope = scope;
       };
     },
     link: function($scope) {
