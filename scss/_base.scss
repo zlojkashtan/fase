@@ -5,3 +5,22 @@
 .full-height {
   height: 100%;
 }
+
+.slider.full-height .list {
+  height: 100%;
+}
+
+.vertical-center-container {
+  height: 100%;
+
+  @include display-flex();
+  @include justify-content(center);
+  @include align-items(center);
+
+  .vertical-center {
+    width: 100%;
+
+    @include display-flex();
+    @include flex-direction(column);
+  }
+}

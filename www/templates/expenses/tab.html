@@ -15,7 +15,7 @@
     <ion-slide-box class="full-height" on-slide-changed="updateTab($index)" does-continue="false">
       <!-- personal -->
       <ion-slide>
-        <ion-list class="full-height">
+        <ion-list>
           <ion-item ng-repeat="e in personalExpenses" on-hold="displayOptions(e)" href="">
             {{ e.category }}
             <span class="item-note">
@@ -23,12 +23,17 @@
             </span>
             <p>{{ e.description }}</p>
           </ion-item>
+          <div class="vertical-center-container" ng-if="!personalExpenses.length">
+            <p class="vertical-center text-center">
+              No expenses
+            </p>
+          </div>
         </ion-list>
       </ion-slide>
 
       <!-- collective -->
       <ion-slide>
-        <ion-list class="full-height">
+        <ion-list>
           <ion-item ng-repeat="e in collectiveExpenses">
             {{ e.category }}
             <span class="item-note">
@@ -36,12 +41,17 @@
             </span>
             <p>{{ e.description }}</p>
           </ion-item>
+          <div class="vertical-center-container" ng-if="!collectiveExpenses.length">
+            <p class="vertical-center text-center">
+              No expenses
+            </p>
+          </div>
         </ion-list>
       </ion-slide>
 
       <!-- all -->
       <ion-slide>
-        <ion-list class="full-height">
+        <ion-list>
           <ion-item collection-repeat="e in expenses" collection-item-height="getItemHeight(e)">
             {{ e.category }}
             <span class="item-note">
@@ -49,6 +59,11 @@
             </span>
             <p>{{ e.description }}</p>
           </ion-item>
+          <div class="vertical-center-container" ng-if="!expenses.length">
+            <p class="vertical-center text-center">
+              No expenses
+            </p>
+          </div>
         </ion-list>
       </ion-slide>
     </ion-slide-box>
